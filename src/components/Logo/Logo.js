@@ -1,11 +1,13 @@
 import React from 'react'
 import { Tilt } from 'react-tilt'
+import './logo.css'
+import ai from './ai.png'
 
 const defaultOptions = {
 	reverse:        false,  // reverse the tilt direction
-	max:            35,     // max tilt rotation (degrees)
+	max:            55,     // max tilt rotation (degrees)
 	perspective:    1000,   // Transform perspective, the lower the more extreme the tilt gets.
-	scale:          1.5,    // 2 = 200%, 1.5 = 150%, etc..
+	scale:          2,    // 2 = 200%, 1.5 = 150%, etc..
 	speed:          1000,   // Speed of the enter/exit transition
 	transition:     true,   // Set a transition on enter/exit.
 	axis:           null,   // What axis should be disabled. Can be X or Y.
@@ -16,8 +18,10 @@ const defaultOptions = {
 const Logo = () => {
   return (
     <div className ='ma4 mt0'>
-        <Tilt className='br2 shadow-2' options={defaultOptions} style={{ height: 25, width: 25 }}>
-            <div>👽</div>
+        <Tilt className='Tilt br3 shadow-2' options={defaultOptions} style={{ height: 65, width: 65 }}>
+            <div className='pa2'>
+                <img alt='logo' src={ai}/>
+            </div>
         </Tilt>
     </div>
   )

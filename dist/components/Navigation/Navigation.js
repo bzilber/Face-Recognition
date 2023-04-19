@@ -1,0 +1,1 @@
+import React from"c:\\node_modules\\react\\index.js";const Navigation=()=>React.createElement("nav",{style:{display:"flex",justifyContent:"flex-end"}},React.createElement("p",{className:"f3 link dim black underline pa3 pointer"},"Sign Out"));export default Navigation;

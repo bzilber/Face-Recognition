@@ -1,0 +1,1 @@
+import"/node_modules/core-js/modules/es.promise.js";const reportWebVitals=onPerfEntry=>{onPerfEntry&&onPerfEntry instanceof Function&&import("c:\\node_modules\\web-vitals\\dist\\web-vitals.js").then(({getCLS,getFID,getFCP,getLCP,getTTFB})=>{getCLS(onPerfEntry),getFID(onPerfEntry),getFCP(onPerfEntry),getLCP(onPerfEntry),getTTFB(onPerfEntry)})};export default reportWebVitals;

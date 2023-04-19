@@ -18,9 +18,9 @@ const defaultOptions = {
 const Logo = () => {
   return (
     <div className ='ma4 mt0'>
-        <Tilt className='Tilt br3 shadow-2' options={defaultOptions} style={{ height: 65, width: 65 }}>
+        <Tilt className='Tilt br3 shadow-2' options={defaultOptions} style={{ height: 80, width: 80 }}>
             <div className='pa2'>
-                <img alt='logo' src={ai}/>
+                <img alt='logo'src={ai}/>
             </div>
         </Tilt>
     </div>

@@ -13,7 +13,7 @@ class App extends Component {
     console.log(event.target.value);
   }
 
-  onSubmit = () => {console.log('click')}
+  onSubmit = () => {console.log('clicko9');}
 
   render = () => {
   return (
@@ -21,7 +21,10 @@ class App extends Component {
       <ParticlesBg type="circle" bg={true} />
       <Navigation/>
        <Logo/>
-      <ImageLinkForm onInputChange={this.onInputChange} />
+      <ImageLinkForm 
+        onInputChange={this.onInputChange} 
+        onSubmit={this.onSubmit} 
+      />
       {/* <FaceRecognition/> */}
     </div>
   );

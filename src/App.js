@@ -6,6 +6,7 @@ import ImageLinkForm from './components/ImageLinkForm/ImageLinkForm';
 // import 'tachyons'; seems to not matter if placed here or index.js, so far..
 import ParticlesBg from 'particles-bg'
 import FaceRecognition from './components/FaceRecognition/FaceRecognition'
+import Signin from './components/SignIn/Signin';
 
 const returnClarifaiRequestOptions = (imageUrl) => {
     // Your PAT (Personal Access Token) can be found in the portal under Authentification
@@ -58,7 +59,8 @@ class App extends Component {
         email: '',
         entries: 0,
         joined: ''
-      }
+      },
+      route: 'signin',
     }
   }
   
@@ -87,19 +89,29 @@ class App extends Component {
         })
   }
 
+  onRouteChange = () => {
+    this.setState({route: 'home'});
+  }
+
   render = () => {
-  return (
-    <div className="App">
-      <ParticlesBg type="circle" bg={true} />
-      <Navigation/>
-       <Logo/>
-      <ImageLinkForm 
-        onInputChange={this.onInputChange} 
-        onSubmit={this.onSubmit} 
-      />
-      <FaceRecognition/>
-    </div>
-  );
+    return (
+      <div className="App">
+        <ParticlesBg type="circle" bg={true} />
+        <Navigation/>
+        {this.state.route === 'signin' 
+          ? <Signin onRouteChange={this.onRouteChange}/>
+          : <div>
+              <Logo/>
+              <ImageLinkForm 
+                onInputChange={this.onInputChange} 
+                onSubmit={this.onSubmit} 
+              />
+              <FaceRecognition/>
+            </div>
+        }
+      </div>
+    
+    );
   };
 }
 

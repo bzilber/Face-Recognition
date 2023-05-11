@@ -7,6 +7,7 @@ import ImageLinkForm from './components/ImageLinkForm/ImageLinkForm';
 import ParticlesBg from 'particles-bg'
 import FaceRecognition from './components/FaceRecognition/FaceRecognition'
 import Signin from './components/SignIn/Signin';
+import Register from './components/Register/Register';
 
 const returnClarifaiRequestOptions = (imageUrl) => {
     // Your PAT (Personal Access Token) can be found in the portal under Authentification
@@ -61,6 +62,7 @@ class App extends Component {
         joined: ''
       },
       route: 'signin',
+      isSignedIn: 'false',
     }
   }
   
@@ -90,6 +92,11 @@ class App extends Component {
   }
 
   onRouteChange = (route) => {
+    if(this.route === 'signout'){
+      this.setState({isSignedIn: false})  
+    } else if (this.route === 'home') {
+      this.setState({isSignedIn: true})
+    }
     this.setState({route: route});
   }
 
@@ -100,20 +107,26 @@ class App extends Component {
           type="circle" 
           bg={true} 
         />
-        <Navigation onRouteChange={this.onRouteChange} />
-        { this.state.route === 'signin' 
-          ? <Signin onRouteChange={this.onRouteChange} />
-          : <div>
+        <Navigation 
+          isSignedIn={this.state.isSignedIn} 
+          onRouteChange={this.onRouteChange} 
+        />
+        { this.state.route === 'home' 
+          ? <div>
               <Logo/>
               <ImageLinkForm 
                 onInputChange={this.onInputChange} 
                 onSubmit={this.onSubmit} 
               />
               <FaceRecognition/>
-            </div>
+           </div>
+          :(
+            this.state.route ==='signin'
+            ? <Signin onRouteChange={this.onRouteChange}/>
+            : <Register onRouteChange={this.onRouteChange}/>
+           )
         }
       </div>
-    
     );
   };
 }

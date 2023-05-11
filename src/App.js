@@ -89,17 +89,20 @@ class App extends Component {
         })
   }
 
-  onRouteChange = () => {
-    this.setState({route: 'home'});
+  onRouteChange = (route) => {
+    this.setState({route: route});
   }
 
   render = () => {
     return (
       <div className="App">
-        <ParticlesBg type="circle" bg={true} />
-        <Navigation/>
-        {this.state.route === 'signin' 
-          ? <Signin onRouteChange={this.onRouteChange}/>
+        <ParticlesBg 
+          type="circle" 
+          bg={true} 
+        />
+        <Navigation onRouteChange={this.onRouteChange} />
+        { this.state.route === 'signin' 
+          ? <Signin onRouteChange={this.onRouteChange} />
           : <div>
               <Logo/>
               <ImageLinkForm 
